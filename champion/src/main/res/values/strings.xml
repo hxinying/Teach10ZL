@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">状元共享</string>
+    <string name="complete">完成</string>
+    <string name="main_page">主页</string>
+    <string name="course">课程</string>
+    <string name="VIP">VIP</string>
+    <string name="data">资料</string>
+    <string name="mine">我的</string>
+    <string name="search">搜索</string>
+    <string name="teacher_reply">头像 老师：</string>
+    <string name="editor_reply">编辑回复：</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.teach.champion.viewModel.XLoginViewModel" />
+
+        <variable
+            name="verify"
+            type="com.teach.champion.bean.YanzhengmaBean" />
+
+        <variable
+            name="listData"
+            type="com.teach.champion.bean.DemoInfo" />
+
+        <variable
+            name="bitmap"
+            type="okhttp3.ResponseBody" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/demoText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:gravity="center"
+            android:onClick="@{viewModel.textClick}"
+            android:text="@{listData.datas.get(0).title}"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/verifyImage"
+            base64Content="@{verify.data.img}"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_40"
+            android:onClick="@{viewModel.imageClick}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/demoText" />
+
+        <ImageView
+            bitmap="@{bitmap}"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginLeft="@dimen/dp_10"
+            app:layout_constraintLeft_toRightOf="@+id/verifyImage"
+            app:layout_constraintTop_toTopOf="@+id/verifyImage" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_demo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/verifyImage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

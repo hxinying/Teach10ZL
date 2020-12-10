@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="RoundImage">
+        <attr name="radius" format="integer" />
+        <attr name="round_mode" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="BottomTabLayout">
+        <attr name="num" format="integer"/>
+        <attr name="isContainContent" format="boolean"/>
+        <attr name="isChangeContentColor" format="boolean"/>
+        <attr name="default_show" format="integer"/>
+        <attr name="content_selected_color" format="color"/>
+        <attr name="content_unSelected_color" format="color"/>
+    </declare-styleable>
+</resources>

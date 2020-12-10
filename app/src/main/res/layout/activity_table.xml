@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/dp_10"
+    android:splitMotionEvents="false"
+    tools:context="com.teach.teach10zl.view.activity.TableActivity">
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="left_line,right_line,top_line,bottom_line,province_text,scroll_top_line"
+        android:id="@+id/line_group"/>
+
+    <View
+        android:id="@+id/left_line"
+        android:layout_width="@dimen/dp_1"
+        android:layout_height="match_parent"
+        android:background="@color/line_color"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <View
+        android:id="@+id/right_line"
+        android:layout_width="@dimen/dp_1"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/dp_70"
+        android:background="@color/line_color"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_line"
+        app:layout_constraintLeft_toRightOf="@+id/left_line"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/top_line"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_color"
+        app:layout_constraintLeft_toLeftOf="@id/left_line"
+        app:layout_constraintRight_toRightOf="@id/right_line"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/province_text"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_37"
+        android:background="@color/top_blue"
+        android:gravity="center"
+        android:text="省份"
+        android:textColor="@color/font_color_dark"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintLeft_toRightOf="@+id/left_line"
+        app:layout_constraintRight_toLeftOf="@+id/right_line"
+        app:layout_constraintTop_toBottomOf="@+id/top_line" />
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_color"
+        app:layout_constraintLeft_toRightOf="@+id/left_line"
+        app:layout_constraintRight_toLeftOf="@+id/right_line"
+        app:layout_constraintTop_toBottomOf="@+id/province_text" />
+
+    <View
+        android:id="@+id/scroll_top_line"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_color"
+        app:layout_constraintLeft_toRightOf="@+id/right_line"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/recycle_scroll"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_38"
+        android:scrollbars="none"
+        android:splitMotionEvents="false"
+        app:layout_constraintLeft_toRightOf="@id/right_line"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll_top_line">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_desc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/top_blue" />
+    </HorizontalScrollView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@id/left_line"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_line"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/vertical_scroll">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/province_recycle"
+                android:layout_width="@dimen/dp_70"
+                android:layout_height="match_parent"/>
+            <View
+                android:id="@+id/right_long_line"
+                android:layout_width="@dimen/dp_1"
+                android:layout_height="match_parent"
+                android:background="@color/line_color"/>
+            <HorizontalScrollView
+                android:id="@+id/scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                android:splitMotionEvents="false"
+                app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintLeft_toRightOf="@+id/right_long_line"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/data_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </HorizontalScrollView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

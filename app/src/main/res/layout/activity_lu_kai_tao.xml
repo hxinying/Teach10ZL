@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.teach.teach10zl.view.activity.LuKaiTaoActivity">
+
+    <Button
+        android:id="@+id/single"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="单选题"
+        android:onClick="single"
+       app:layout_constraintWidth_percent="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/more"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.5"
+        android:layout_height="wrap_content"
+        android:text="多选题"
+        android:onClick="more"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/single"
+        android:layout_marginTop="@dimen/dp_15"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/province_desc"
+    android:layout_height="@dimen/dp_38">
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_color"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/province_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="省份"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_line"
+        android:textColor="@color/font_color_dark"
+        android:textSize="@dimen/sp_12"
+        android:gravity="center"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,143 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.mob.sdk'
+MobSDK {
+    appKey "313b00d1b589f"
+    appSecret "70b491eefbae2c48b4ab94362deb54df"
+    ShareSDK {
+        devInfo {
+            version "3.6.8"
+            QZone {
+                id 3
+                sortId 3
+                appId "1105712307"
+                appKey "JrFqzftdwJeUq9fj"
+                shareByAppClient false
+                enable true
+            }
+
+            Wechat {
+                id 4
+                sortId 4
+                appId "wx4b6c402fee6860c8"
+                appKey "1278977f2848ee16708c656f66abf35a"
+                shareByAppClient true
+                enable true
+            }
+
+            WechatMoments {
+                id 5
+                sortId 5
+                appId "wx4b6c402fee6860c8"
+                appKey "1278977f2848ee16708c656f66abf35a"
+                shareByAppClient true
+                enable true
+            }
+
+            QQ {
+                id 6
+                sortId 6
+                appId "1105712307"
+                appKey "JrFqzftdwJeUq9fj"
+                shareByAppClient false
+                enable true
+            }
+        }
+    }
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+    defaultConfig {
+//        applicationId "com.zhulong.eduvideo"
+        applicationId "com.teach.teach10zl"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(storeFileName)
+            storePassword storepwd
+            keyAlias alias
+            keyPassword keypwd
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled rootProject.ext.minify
+            shrinkResources rootProject.ext.minify
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled rootProject.ext.minify
+            shrinkResources rootProject.ext.minify
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$androidXVsersion"
+    implementation "androidx.constraintlayout:constraintlayout:$androidXConstraint"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation project(path: ':frame10')
+    implementation project(path: ':mvvm')
+    if (!championRun.toBoolean())
+        implementation project(path: ':champion')
+    implementation "androidx.legacy:legacy-support-v4:$v4"
+    implementation "com.flyco.tablayout:FlycoTabLayout_Lib:$tablayout"
+    implementation "com.jakewharton:butterknife:$butterknife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterknife"
+    implementation files('libs/pinyin4j-2.5.0.jar')
+    implementation files('libs/libammsdk.jar')
+    implementation files('libs/open_sdk_r0bd7cf8_lite.jar')
+    implementation files('libs/ccsdk.jar')
+    implementation 'androidx.core:core-ktx:+'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.anko:anko-common:$anko_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines"
+
+    /*Android Gradle 内置编译期注解插件默认不支持kotlin，需要额外添加apply plugin: 'kotlin-kapt'，
+   annotationProcessor "com.jakewharton:butterknife-compiler:$butterknife"
+   而一旦添加将使用kapt编译注解方式，故annotationProcessor失效*/
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.0'
+    implementation 'com.alibaba:arouter-api:1.4.1'
+    if (!tongXun.toBoolean()) {
+        implementation project(path: ':tongXun')
+    }
+
+}

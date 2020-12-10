@@ -1,0 +1,6 @@
+rootProject.name='Teach10ZL'
+include ':app', ':utils', ':pop', ':takephoto', ':tuikit', ':tuikit-live', ':tongXun'
+include ':frame10'
+include ':datalibrary'
+include ':champion'
+include ':mvvm'

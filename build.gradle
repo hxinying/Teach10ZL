@@ -1,0 +1,85 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.4.0'
+    ext.anko_version='0.10.1'
+    ext.kotlin_coroutines = '1.4.1'
+    ext.build_gradle_pluginVersion = '3.6.3'
+    repositories {
+        maven { url "https://mirrors.tencent.com/repository/maven/tencent_public"}
+        google()
+        jcenter()
+        maven { url 'https://www.jitpack.io' }
+        maven {url 'http://developer.huawei.com/repo/'}
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$build_gradle_pluginVersion"
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+        classpath "com.mob.sdk:MobSDK:2018.0319.1724"
+
+        classpath 'com.novoda:bintray-release:0.9'
+        // classpath 'com.google.gms:google-services:4.2.0'
+        classpath 'com.huawei.agconnect:agcp:1.3.1.300'
+        classpath 'com.kezong:fat-aar:1.2.17'
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url "https://mirrors.tencent.com/repository/maven/tencent_public"}
+        maven { url "https://mirrors.tencent.com/repository/maven/liteavsdk" }
+        maven { url "https://mirrors.tencent.com/nexus/repository/maven-public/" }
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://www.jitpack.io' }
+        maven {url 'http://developer.huawei.com/repo/'}
+        flatDir {
+            dirs project(':tuikit-live').file('libs')
+        }
+    }
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+        options.addStringOption('charset', 'UTF-8')
+    }
+}
+subprojects {
+    tasks.withType(Javadoc).all { enabled = false }
+}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    compileSdkVersion = 30
+    buildToolsVersion = '30.0.2'
+    targetSdkVersion = compileSdkVersion
+    butterknife = '10.2.0'
+    androidXVsersion = '1.2.0'
+    androidXConstraint = '2.0.4'
+    androidXRecyclerView = '1.2.0-alpha03'
+    minSdkVersion = 21
+    rootVersionCode = 214
+    rootVersionName = '2.1.4'
+    retrofit2 = '2.7.0'
+    rxjava2 = '2.0.1'
+    glide = '4.8.0'
+    picasso = '2.5.2'
+    rxbinding = '2.0.0'
+    okhttp3 = '4.2.0'
+    minify = false
+    smartRefresh = '1.1.0-andx-11'
+    gson = '2.8.6'
+    eventBusVersion = '3.1.1'
+    jsoupVersion = '1.10.2'
+    xstreamVersion = '1.2.2'
+    xxpermmitionVersion = '5.2'
+    naviVersion = '2.3.1'
+    naviVersionKtl = '1.0.0'
+    tablayout = '2.0.8@aar'
+    v4='1.0.0'
+    abiFilters = ['armeabi-v7a']//'arm64-v8a', 'armeabi', 'x86', 'arm64-v8a'
+}

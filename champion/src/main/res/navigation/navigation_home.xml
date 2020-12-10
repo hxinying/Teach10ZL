@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_home.xml"
+    app:startDestination="@+id/class_room_fragment">
+    <tab_fragment
+        android:id="@+id/class_room_fragment"
+        android:name="com.teach.champion.view.fragment.ClassRoomFragment"
+        android:label="ClassRoomFragment"/>
+    <tab_fragment
+        android:id="@+id/answer_question_fragment"
+        android:name="com.teach.champion.view.fragment.AnswerQuestionFragment"
+        android:label="AnswerQuestionFragment"/>
+    <tab_fragment
+        android:id="@+id/action_fragment"
+        android:name="com.teach.champion.view.fragment.ActionFragment"
+        android:label="ActionFragment"/>
+    <tab_fragment
+        android:id="@+id/mine_fragment"
+        android:name="com.teach.champion.view.fragment.MineFragment"
+        android:label="MineFragment"/>
+</navigation>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.HomeFragment">
+
+    <com.teach.frame10.design.BottomTabLayout
+        android:id="@+id/bottomTab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:content_selected_color="@color/blue32B5E5"
+        app:content_unSelected_color="@color/font_color_dark"
+        app:num="4" />
+    <fragment
+        android:id="@+id/homeController"
+        android:name="com.teach.frame10.frame.BaseNavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomTab"
+        app:navGraph="@navigation/navigation_home" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

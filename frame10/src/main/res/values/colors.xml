@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue32B5E5">#32B5E5</color>
+    <color name="appThemeColor">#28272C</color>
+    <color name="light_back">#EEEEEE</color>
+    <color name="appThemeRed">#EE2E2F</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="font_color_dark">#262626</color>
+    <color name="font_color_light">#999999</color>
+    <color name="home_top_bg_gray">#434244</color>
+    <color name="line_color">#ECECEC</color>
+</resources>
